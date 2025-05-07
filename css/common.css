@@ -1,0 +1,16 @@
+:root{
+    --primary: rgb(6, 131, 241);
+    --secondary: #0f0;
+    --black: #444;
+    --white: #fff;
+    /* --font-family:  */
+}
+
+.section-padding{
+    padding:4rem 0;
+}
+
+.container{
+    padding: 0 6rem;
+}
+
