@@ -1,6 +1,6 @@
 export function loadComponents(){
     // Load Navbar
-    fetch('./components/header.html')
+    fetch('/components/header.html')
     .then((res)=>{
         return res.text()
     })
@@ -9,7 +9,7 @@ export function loadComponents(){
     })
 
     // Load footer
-    fetch('./components/footer.html')
+    fetch('/components/footer.html')
     .then((res)=>{
         return res.text()
     }).then((data)=>{

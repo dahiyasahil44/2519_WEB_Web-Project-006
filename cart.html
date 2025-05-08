@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart ShopNEST - An Ecommerce Platform</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <div id="header"></div>
+
+    <main>
+
+        <style>
+            .cart-wrap{display: flex;gap: 1rem;padding: 1rem 0;}
+            .cart-products{flex: 1 1 70%;}
+            .cart-summary{flex: 1 1 25%;padding: 1rem;background-color: var(--primary);
+            border-radius: 1rem;color: var(--white);height: fit-content;}
+
+            .cart-product{display: flex;border: 1px solid #eee;align-items: center;padding: 1rem;
+            border-radius: 1rem;margin-bottom: 1rem;}
+            .c-p-media{flex: 1 1 12%;}
+            .c-p-info{flex: 1 1 70%;padding: 0 1rem;}
+            .c-p-btn{flex-direction: 1 1 18%;}
+            .c-p-media>img{height: 100px;width: 100%;object-fit: contain;}
+            .c-p-vendor{font-size: 13px;}
+            .c-p-summary{font-size: 14px;}
+            .c-p-price{font-size: 1.2rem;font-weight: bolder;}
+
+            .c-p-qty>label{display: block;margin-bottom: 0.4rem;}
+            .c-p-qty>input{width: 80px;padding: 0.5rem;border: 1px solid #ddd;border-radius: 0.4rem;}
+            .c-p-btn>button{padding: 0.4rem;border-radius: 0.4rem;border: 0;outline: 0;color: rgb(250, 91, 91);}
+        </style>
+        <section class="section-padding">
+            <div class="container">
+                <div class="site-heading">
+                    <h3>Shopping Cart</h3>
+                    <a href="" class="primary-btn">Clear cart <i class="fa-solid fa-trash"></i></a>
+                </div>
+                <div class="cart-wrap">
+                    <div class="cart-products">
+                        <div class="cart-product">
+                            <div class="c-p-media">
+                                <img src="https://rukminim2.flixcart.com/image/224/224/k7usyvk0/mobile/z/f/6/mi-redmi-note-9-b0784d862m-original-imafqy27hbtc37gv.jpeg?q=90"
+                                 alt="">
+                            </div>
+                            <div class="c-p-info">
+                                <h3 class=""><a href="">Redmi Note 9 Pro (Aurora Blue, 128 GB)</a></h3>
+                                <p class="c-p-vendor mb-1">Vendor Name</p>
+                                <p class="c-p-summary mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo sunt 
+                                    voluptas architecto repellendus incidunt omnis. Minima et repellat blanditiis sequi voluptatibus
+                                     fugit, aliquam amet iste mollitia dolores nisi quos similique?</p>
+                                <div class="c-p-price">₹ 17,999 /-</div>
+                            </div>
+                            <div class="c-p-btn">
+                                <div class="c-p-qty mb-1">
+                                    <label for="">Qty</label>
+                                    <input type="number" min="1">
+                                </div>
+                                <button><i class="fa-solid fa-trash-alt"></i> Remove</button>
+                            </div>
+                        </div>
+                        <div class="cart-product">
+                            <div class="c-p-media">
+                                <img src="https://rukminim2.flixcart.com/image/224/224/k7usyvk0/mobile/z/f/6/mi-redmi-note-9-b0784d862m-original-imafqy27hbtc37gv.jpeg?q=90"
+                                 alt="">
+                            </div>
+                            <div class="c-p-info">
+                                <h3 class=""><a href="">Redmi Note 9 Pro (Aurora Blue, 128 GB)</a></h3>
+                                <p class="c-p-vendor mb-1">Vendor Name</p>
+                                <p class="c-p-summary mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo sunt 
+                                    voluptas architecto repellendus incidunt omnis. Minima et repellat blanditiis sequi voluptatibus
+                                     fugit, aliquam amet iste mollitia dolores nisi quos similique?</p>
+                                <div class="c-p-price">₹ 17,999 /-</div>
+                            </div>
+                            <div class="c-p-btn">
+                                <div class="c-p-qty mb-1">
+                                    <label for="">Qty</label>
+                                    <input type="number" min="1">
+                                </div>
+                                <button><i class="fa-solid fa-trash-alt"></i> Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                    <style>
+                        .summ-head{font-size: 1.4rem;padding: 0.4rem 0;}
+                        .cart-price{display: flex;justify-content: space-between;margin-bottom: 0.8rem;padding: 0.4rem 0;
+                        font-size: 14px;}
+                        .checkout-btn{width: 100%;padding: 0.5rem;border: 0;border-radius: 0.5rem;margin-top: 0.5rem;}
+                    </style>
+                    <div class="cart-summary">
+                        <div class="summ-head">Cart Summary</div>
+                        <hr>
+                        <div class="cart-price">
+                            <span class="cart-price-item">Price (1 item)</span>
+                            <span class="cart-price-item">₹ 17,999</span>
+                        </div>
+                        <div class="cart-price">
+                            <span class="cart-price-item">Delivery Charges</span>
+                            <span class="cart-price-item text-success">Free</span>
+                        </div>
+                        <hr>
+                        <div class="cart-price">
+                            <span class="cart-price-item">Total Amount</span>
+                            <span class="cart-price-item">₹ 17,999</span>
+                        </div>
+                        <hr>
+                        <div class="cart-btn">
+                            <button class="checkout-btn">Proceed to Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <div id="footer"></div>
+
+    <script type="module" src="/js/main.js"></script>
+</body>
+</html>
