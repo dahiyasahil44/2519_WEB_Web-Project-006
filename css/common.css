@@ -37,6 +37,8 @@ a{
 
 .text-primary{color: var(--primary);}
 .text-secondary{color: var(--secondary);}
+.text-danger{color: red;}
+.text-success{color: #0f0;}
 
 .primary-btn{
     padding: 0.8rem 2rem;
@@ -51,3 +53,8 @@ a{
 
 .site-heading{padding: 1rem 0;display: flex; align-items: center;justify-content: space-between;}
 .site-heading>h3{font-size: 2.5rem;}
+
+.errMsg{font-size: 13px;}
+
+
+.dash-head{display: flex;justify-content: space-between;}

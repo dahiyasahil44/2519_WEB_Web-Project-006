@@ -25,10 +25,10 @@ background-color: var(--primary);color: var(--white);}
 
 /* product cards 1 */
 .product-1{display: flex;gap: 1rem;padding: 1rem 0;flex-flow: row wrap;justify-content: space-between;}
-.product-card{width: 18%;transition: all .2s ease-in;}
+.product-card{width: 24%;transition: all .2s ease-in;}
 .product-card:hover{transform: translateY(-10px);}
 .product-card>a{width: 100%;}
-.product-card>a>img{height: 220px;width: 100%;object-fit: cover;
+.product-card>a>img{height: 220px;width: 100%;object-fit: contain;
 border-top-right-radius: 1rem;border-top-left-radius: 1rem;}
 .p-info{display: flex;justify-content: space-between;align-items: center;font-size: 14px;}
 .p-text{padding: 0.8rem;border-bottom-left-radius: 1rem;border-bottom-right-radius: 1rem;background-color: #efefef;}
