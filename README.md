@@ -1,62 +1,75 @@
-# 2519_WEB_Web-Project-006
-An e-commerce platform where small businesses can list and sell their products, providing a simple online storefront with features to manage products, orders, and customer engagement.
+# EcommercePlatformForSmallBusinesses_Retail (shopnest)
 
-Day 1: Frontend - Basic Structure & UI Implementation
-•	Homepage:
-    o	Navbar (search, logo, become a vendor, cart, login)
-    o	Welcome/Hero Section
-    o	New Arrivals Section
-    o	Featured Section
-•	Product Listing Page:
-    o	Create product listing structure
-    o	Implement search and category filters   
-•	Product Details Page:
-    o	Structure the product details layout
-    o	Implement basic Add to Cart / Wishlist buttons
-•	Contact Page: Basic layout and form
-•	About Us Page: Static content layout
-________________________________________
-Day 2: Frontend - User Interactions & Additional Pages
-•	Homepage:
-    o	Implement Categories section
-    o	Vendors section
-    o	Footer
-•	Product Listing Page:
-    o	Implement price, ratings, availability filters
-•	Product Details Page:
-    o	Add Reviews section (if logged in)
-•	Login/Signup Page:
-    o	Customer and Vendor forms
-•	Shopping Cart: Basic structure and UI
-•	Wishlist: Basic structure and UI
-•	Checkout Page: Form structure and summary
-•	Success / Cancel Page: Basic UI layout
-________________________________________
-Day 3: Backend - Admin/Vendor Dashboard & Product Management
-•	Admin Login and Dashboard:
-    o	Implement different views for customer, vendor, and admin
-•	Product Management:
-    o	Vendor - Add/Edit/Delete product
-    o	Admin - Add/Edit/Delete product
-•	Order Management:
-    o	Vendor - View and manage orders
-    o	Admin - View and manage orders
-•	Reviews Management:
-    o	Vendor - View only
-    o	Admin - Edit/Delete reviews
-    o	Customer - Add/View reviews on product page
-________________________________________
-Day 4: Backend - Authentication, Order Flow, and Settings
-•	Authentication:
-    o	Signup/Login functionality for Customer and Vendor
-    o	Role-based access control
-•	Order Placement:
-    o	Add to Cart logic
-    o	Checkout process
-    o	Integrate payment gateway (Stripe)
-•	Order Management:
-    o	Update order status (Processing, Shipped, Delivered, Cancelled)
-•	Profile Settings:
-    o	Edit public info (name, phone, address)
-    o	Change password
-    o	Dark mode toggle
+## Introduction
+ShopNest is a comprehensive e-commerce platform designed to streamline the online shopping experience by providing a wide range of products across various categories such as fashion, home essentials, and unique gifts. The core functionality of ShopNest includes product browsing, secure checkout, and efficient order management, making it easy for customers to find and purchase items conveniently.
+
+The purpose of ShopNest is to offer a user-friendly and visually appealing platform that connects customers with quality products while ensuring a seamless shopping experience. It addresses common e-commerce challenges such as product availability, order tracking, and customer support, ultimately enhancing customer satisfaction and retention.
+
+## Project Type
+Fullstack
+
+## Deplolyed App
+App is deployed on vercel at this url - https://2519-web-web-project-006.vercel.app/
+
+## Directory Structure
+my-app/
+├─ components/ (all reusable components like header & footer)
+├─ css/ (all css files)
+│  ├─ main.css
+├─ images/ (images used in the project)
+├─ js/ (All js files)
+│  ├─ main.js
+├─ index.html
+├─ other pages like (cart.html, login, signup etc)
+
+## Video Walkthrough of the project
+Attach a very short video walkthough of all of the features [ 1 - 3 minutes ]
+
+## Video Walkthrough of the codebase
+Attach a very short video walkthough of codebase [ 1 - 5 minutes ]
+
+## Features
+Key features:-
+- Authentication & Authorization
+- Product Listing
+- Add to Cart
+- Login
+- Signup
+- Product filtering
+- Customer management
+- Order management
+
+## design decisions or assumptions
+NA
+
+## Installation & Getting started
+Github repo :- https://github.com/dahiyasahil44/2519_WEB_Web-Project-006.git
+
+Visit:- https://2519-web-web-project-006.vercel.app/
+
+## Usage
+Visit:- https://2519-web-web-project-006.vercel.app/
+
+## Credentials
+Admin - 
+|| email - admin@gmail.com
+|| password - admin@123
+Vendor - 
+|| email - john@gmai.conm
+|| password - 123456
+Customer - 
+|| email -  imsahil440407@gmail.com
+|| password - 123456
+
+## APIs Used
+NA (only firebase API's are used)
+
+## API Endpoints
+No endpoints
+
+
+## Technology Stack
+- HTML
+- CSS
+- JavaScript
+- Firebase

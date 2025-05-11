@@ -13,10 +13,6 @@
     <div id="header"></div>
 
     <style>
-        .hidden {
-            display: none;
-        }
-
         .dashboard-wrap {
             display: flex;
         }
@@ -156,10 +152,13 @@
                             vendors.classList.add('hidden')
                             break;
                         case 'customer':
+                            // hide order add button
+                            if(document.getElementById('addOrder')){document.getElementById('addOrder').classList.add('hidden')}
                             reporting.classList.add('hidden')
                             products.classList.add('hidden')
                             customers.classList.add('hidden')
                             vendors.classList.add('hidden')
+
                             break;
                     }
                 })
@@ -173,6 +172,7 @@
                     })
                 }
 
+             
                 function loadReporting() {
                     fetch('/components/reporting.html')
                         .then((res) => {
@@ -186,6 +186,17 @@
 
                 function loadOrders() {
                     fetch('/components/orders.html')
+                        .then((res) => {
+                            return res.text()
+                        })
+                        .then((data) => {
+                            dashContainer.innerHTML = ""
+                            dashContainer.innerHTML = data
+                        })
+                }
+
+                function loadProfile() {
+                    fetch('/components/profile.html')
                         .then((res) => {
                             return res.text()
                         })
@@ -297,6 +308,9 @@
                 window.location = "/login.html"
             }
         });
+
+
+        
     </script>
 </body>
 

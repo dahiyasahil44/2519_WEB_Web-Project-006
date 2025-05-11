@@ -19,12 +19,13 @@
                 gap: 1rem;
                 padding: 1rem 0;
             }
+            
 
             .cart-products {
                 flex: 1 1 70%;
             }
 
-            .cart-summary {
+            #cart-summary {
                 flex: 1 1 25%;
                 padding: 1rem;
                 background-color: var(--primary);
@@ -94,6 +95,7 @@
                 color: rgb(250, 91, 91);
             }
 
+            .empty-cart{text-align: center;}
             .empty-cart>i {
                 font-size: 8rem;
                 margin-bottom: 1rem;
@@ -102,14 +104,35 @@
             .empty-cart>h3 {
                 font-size: 2rem;
             }
+       
+            .summ-head {
+                font-size: 1.4rem;
+                padding: 0.4rem 0;
+            }
+
+            .cart-price {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 0.8rem;
+                padding: 0.4rem 0;
+                font-size: 14px;
+            }
+
+            .checkout-btn {
+                width: 100%;
+                padding: 0.5rem;
+                border: 0;
+                border-radius: 0.5rem;
+                margin-top: 0.5rem;
+            }
         </style>
         <section class="section-padding">
             <div class="container">
                 <div class="site-heading">
                     <h3>Shopping Cart</h3>
-                    <a href="" class="primary-btn">Clear cart <i class="fa-solid fa-trash"></i></a>
+                    <button class="primary-btn" onclick="clearCart()">Clear cart <i class="fa-solid fa-trash"></i></button>
                 </div>
-                <div class="cart-wrap">
+                <div class="cart-wrap" id="">
                     <div class="cart-products" id="cart-products">
                         <div class="empty-cart">
                             <i class="fa-solid fa-shopping-cart"></i>
@@ -118,49 +141,9 @@
                         </div>
 
                     </div>
-                    <style>
-                        .summ-head {
-                            font-size: 1.4rem;
-                            padding: 0.4rem 0;
-                        }
-
-                        .cart-price {
-                            display: flex;
-                            justify-content: space-between;
-                            margin-bottom: 0.8rem;
-                            padding: 0.4rem 0;
-                            font-size: 14px;
-                        }
-
-                        .checkout-btn {
-                            width: 100%;
-                            padding: 0.5rem;
-                            border: 0;
-                            border-radius: 0.5rem;
-                            margin-top: 0.5rem;
-                        }
-                    </style>
-                    <div class="cart-summary">
-                        <div class="summ-head">Cart Summary</div>
-                        <hr>
-                        <div class="cart-price">
-                            <span class="cart-price-item">Price (1 item)</span>
-                            <span class="cart-price-item">₹ 17,999</span>
-                        </div>
-                        <div class="cart-price">
-                            <span class="cart-price-item">Delivery Charges</span>
-                            <span class="cart-price-item text-success">Free</span>
-                        </div>
-                        <hr>
-                        <div class="cart-price">
-                            <span class="cart-price-item">Total Amount</span>
-                            <span class="cart-price-item">₹ 17,999</span>
-                        </div>
-                        <hr>
-                        <div class="cart-btn">
-                            <button class="checkout-btn">Proceed to Checkout</button>
-                        </div>
-                    </div>
+                    <div id="cart-summary"></div>
+                    
+                    
                 </div>
             </div>
         </section>
@@ -172,39 +155,72 @@
     <script type="module">
         import { removeFromCart, clearCart, getCart } from "./js/cart.js"
 
-        function loadCart() {
-            let cartProducts = document.getElementById('cart-products')
-            // cart-products
-            let cartItems = getCart()
-            if (cartItems.length) {
-                cartProducts.innerHTML = ""
-                cartItems.forEach(async (item) => {
-                    // fetch product ID
-                    // console.log(item)
-                    let data = await fetchProduct(item.pID)
-                    // display data in cart
-                    let thisProduct = `<div class="cart-product">
-                        <div class="c-p-media">
-                            <img src="${data.image}"
-                            alt="${data.title}">
+        async function loadCart() {
+    let cartSummary = document.getElementById('cart-summary')
+    let cartProducts = document.getElementById('cart-products')
+    let cartItems = getCart()
+    let priceObj = { subTotal: 0 }
+
+    cartProducts.innerHTML = ""
+    cartSummary.innerHTML = ""
+
+    if (cartItems.length) {
+        let productPromises = cartItems.map(async (item) => {
+            let data = await fetchProduct(item.pID)
+            priceObj.subTotal += data.price * item.qty
+
+            let thisProduct = `
+                <div class="cart-product">
+                    <div class="c-p-media">
+                        <img src="${data.image}" alt="${data.title}">
+                    </div>
+                    <div class="c-p-info">
+                        <h3 class=""><a href="product-single.html?id=${data.id}">${data.title}</a></h3>
+                        <p class="c-p-vendor mb-1">${data.category}</p>
+                        <div class="c-p-price">₹ ${data.price} /-</div>
+                    </div>
+                    <div class="c-p-btn">
+                        <div class="c-p-qty mb-1">
+                            <label for="">Qty</label>
+                            <input type="number" min="1" value="${item.qty}">
                         </div>
-                        <div class="c-p-info">
-                            <h3 class=""><a href="product-single.html?id=${data.id}">${data.title}</a></h3>
-                            <p class="c-p-vendor mb-1">${data.category}</p>
-                            <div class="c-p-price">₹ ${data.price} /-</div>
-                        </div>
-                        <div class="c-p-btn">
-                            <div class="c-p-qty mb-1">
-                                <label for="">Qty</label>
-                                <input type="number" min="1" value="${item.qty}">
-                            </div>
-                            <button onclick="removeItem(${data.id})"><i class="fa-solid fa-trash-alt"></i> Remove</button>
-                        </div>
-                    </div>`
-                    cartProducts.innerHTML += thisProduct
-                });
-            }
-        }
+                        <button onclick="removeItem(${data.id})"><i class="fa-solid fa-trash-alt"></i> Remove</button>
+                    </div>
+                </div>
+            `
+            cartProducts.innerHTML += thisProduct
+        })
+
+        // Wait for all products to be processed
+        await Promise.all(productPromises)
+
+        // Update the cart summary after all items are processed
+        cartSummary.innerHTML = `
+            <div class="cart-summary">
+                <div class="summ-head">Cart Summary</div>
+                <hr>
+                <div class="cart-price">
+                    <span class="cart-price-item">Subtotal</span>
+                    <span class="cart-price-item">₹ ${priceObj.subTotal}</span>
+                </div>
+                <div class="cart-price">
+                    <span class="cart-price-item">Delivery Charges</span>
+                    <span class="cart-price-item text-success">Free</span>
+                </div>
+                <hr>
+                <div class="cart-price">
+                    <span class="cart-price-item">Total Amount</span>
+                    <span class="cart-price-item">₹ ${priceObj.subTotal}</span>
+                </div>
+                <hr>
+                <div class="cart-btn">
+                    <button class="checkout-btn">Proceed to Checkout</button>
+                </div>
+            </div>
+        `
+    }
+}
+
 
         function removeItem(id){
             removeFromCart(id)
@@ -227,6 +243,8 @@
         }
 
         loadCart()
+
+        
 
     </script>
 

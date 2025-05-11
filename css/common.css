@@ -58,3 +58,8 @@ a{
 
 
 .dash-head{display: flex;justify-content: space-between;}
+
+.hidden {
+    display: none;
+}
+.dash-content-wrap{border: 1px solid #eee;padding: 2rem;border-radius: 1rem;}
