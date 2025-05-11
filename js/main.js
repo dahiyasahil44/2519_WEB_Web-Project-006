@@ -5,7 +5,7 @@ import { auth, onAuthStateChanged, signOut, getDoc, doc, db} from "./firebase-in
 loadComponents()
 loadSliders()
 
-
+const url = 'https://shopnest-7577a-default-rtdb.asia-southeast1.firebasedatabase.app/'
 async function fetchCategoriesMenu() {
     try {
         let response = await fetch(`${url}/categories.json`)

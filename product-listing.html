@@ -60,7 +60,7 @@
     <script type="module" src="/js/main.js"></script>
 
     <script type="module">
-    import {addtoCart, saveCart} from "./js/cart.js"
+    import {addToCart} from "./js/cart.js"
         
 const url = 'https://shopnest-7577a-default-rtdb.asia-southeast1.firebasedatabase.app/'
 
@@ -73,7 +73,7 @@ async function fetchData(filter = {}, sortBy = 'title') {
     data = filterItems(data, filter)
     data = sortItems(data, sortBy)
 
-    displayData(data, 8)
+    displayData(data)
   } catch (error) {
     console.log('Error fetching data:', error)
   }
@@ -94,12 +94,12 @@ function filterItems(data, filter) {
     return data.sort((a, b) => a[sortBy].localeCompare(b[sortBy]))
   }
 
-  function displayData(data, limit) {
+  function displayData(data) {
     const list = document.getElementById('product-1')
     list.innerHTML = ''
     
     data.forEach(item => {
-        if(limit){
+        // if(limit){
             const div = document.createElement('div')
             div.className = "product-card"
 
@@ -128,7 +128,7 @@ function filterItems(data, filter) {
             }
             div3.append(p,div4)
 
-            let button = `<button class="primary-btn btn-sm" onclick="addtoCart(${item.id})"><i class="fa-solid fa-shopping-cart"></i> Add to cart</button>`
+            let button = `<button class="primary-btn btn-sm" onclick="addItemInCart(${item.id})"><i class="fa-solid fa-shopping-cart"></i> Add to cart</button>`
             
            
             
@@ -137,12 +137,17 @@ function filterItems(data, filter) {
 
             div.append(a,div2)
             list.appendChild(div)
-            limit--
-        }
+        //     limit--
+        // }
     })
   }
 
-  
+  function addItemInCart(id){
+    addToCart(id)
+    alert("Added to Cart")
+  }
+
+  window.addItemInCart = addItemInCart
 
   fetchData()
 //   console.log(localStorage.getItem('cart'))

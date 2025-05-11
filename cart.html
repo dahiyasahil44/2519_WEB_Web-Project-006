@@ -1,35 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart ShopNEST - An Ecommerce Platform</title>
     <link rel="stylesheet" href="/css/main.css">
 </head>
+
 <body>
     <div id="header"></div>
 
     <main>
 
         <style>
-            .cart-wrap{display: flex;gap: 1rem;padding: 1rem 0;}
-            .cart-products{flex: 1 1 70%;}
-            .cart-summary{flex: 1 1 25%;padding: 1rem;background-color: var(--primary);
-            border-radius: 1rem;color: var(--white);height: fit-content;}
+            .cart-wrap {
+                display: flex;
+                gap: 1rem;
+                padding: 1rem 0;
+            }
 
-            .cart-product{display: flex;border: 1px solid #eee;align-items: center;padding: 1rem;
-            border-radius: 1rem;margin-bottom: 1rem;}
-            .c-p-media{flex: 1 1 12%;}
-            .c-p-info{flex: 1 1 70%;padding: 0 1rem;}
-            .c-p-btn{flex-direction: 1 1 18%;}
-            .c-p-media>img{height: 100px;width: 100%;object-fit: contain;}
-            .c-p-vendor{font-size: 13px;}
-            .c-p-summary{font-size: 14px;}
-            .c-p-price{font-size: 1.2rem;font-weight: bolder;}
+            .cart-products {
+                flex: 1 1 70%;
+            }
 
-            .c-p-qty>label{display: block;margin-bottom: 0.4rem;}
-            .c-p-qty>input{width: 80px;padding: 0.5rem;border: 1px solid #ddd;border-radius: 0.4rem;}
-            .c-p-btn>button{padding: 0.4rem;border-radius: 0.4rem;border: 0;outline: 0;color: rgb(250, 91, 91);}
+            .cart-summary {
+                flex: 1 1 25%;
+                padding: 1rem;
+                background-color: var(--primary);
+                border-radius: 1rem;
+                color: var(--white);
+                height: fit-content;
+            }
+
+            .cart-product {
+                display: flex;
+                border: 1px solid #eee;
+                align-items: center;
+                padding: 1rem;
+                border-radius: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .c-p-media {
+                flex: 1 1 12%;
+            }
+
+            .c-p-info {
+                flex: 1 1 70%;
+                padding: 0 1rem;
+            }
+
+            .c-p-btn {
+                flex-direction: 1 1 18%;
+            }
+
+            .c-p-media>img {
+                height: 100px;
+                width: 100%;
+                object-fit: contain;
+            }
+
+            .c-p-vendor {
+                font-size: 13px;
+            }
+
+            .c-p-summary {
+                font-size: 14px;
+            }
+
+            .c-p-price {
+                font-size: 1.2rem;
+                font-weight: bolder;
+            }
+
+            .c-p-qty>label {
+                display: block;
+                margin-bottom: 0.4rem;
+            }
+
+            .c-p-qty>input {
+                width: 80px;
+                padding: 0.5rem;
+                border: 1px solid #ddd;
+                border-radius: 0.4rem;
+            }
+
+            .c-p-btn>button {
+                padding: 0.4rem;
+                border-radius: 0.4rem;
+                border: 0;
+                outline: 0;
+                color: rgb(250, 91, 91);
+            }
+
+            .empty-cart>i {
+                font-size: 8rem;
+                margin-bottom: 1rem;
+            }
+
+            .empty-cart>h3 {
+                font-size: 2rem;
+            }
         </style>
         <section class="section-padding">
             <div class="container">
@@ -38,55 +110,35 @@
                     <a href="" class="primary-btn">Clear cart <i class="fa-solid fa-trash"></i></a>
                 </div>
                 <div class="cart-wrap">
-                    <div class="cart-products">
-                        <div class="cart-product">
-                            <div class="c-p-media">
-                                <img src="https://rukminim2.flixcart.com/image/224/224/k7usyvk0/mobile/z/f/6/mi-redmi-note-9-b0784d862m-original-imafqy27hbtc37gv.jpeg?q=90"
-                                 alt="">
-                            </div>
-                            <div class="c-p-info">
-                                <h3 class=""><a href="">Redmi Note 9 Pro (Aurora Blue, 128 GB)</a></h3>
-                                <p class="c-p-vendor mb-1">Vendor Name</p>
-                                <p class="c-p-summary mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo sunt 
-                                    voluptas architecto repellendus incidunt omnis. Minima et repellat blanditiis sequi voluptatibus
-                                     fugit, aliquam amet iste mollitia dolores nisi quos similique?</p>
-                                <div class="c-p-price">₹ 17,999 /-</div>
-                            </div>
-                            <div class="c-p-btn">
-                                <div class="c-p-qty mb-1">
-                                    <label for="">Qty</label>
-                                    <input type="number" min="1">
-                                </div>
-                                <button><i class="fa-solid fa-trash-alt"></i> Remove</button>
-                            </div>
+                    <div class="cart-products" id="cart-products">
+                        <div class="empty-cart">
+                            <i class="fa-solid fa-shopping-cart"></i>
+                            <h3 class="mb-1">Your cart is empty!</h3>
+                            <a href="/product-listing.html" class="primary-btn">Continue Shopping</a>
                         </div>
-                        <div class="cart-product">
-                            <div class="c-p-media">
-                                <img src="https://rukminim2.flixcart.com/image/224/224/k7usyvk0/mobile/z/f/6/mi-redmi-note-9-b0784d862m-original-imafqy27hbtc37gv.jpeg?q=90"
-                                 alt="">
-                            </div>
-                            <div class="c-p-info">
-                                <h3 class=""><a href="">Redmi Note 9 Pro (Aurora Blue, 128 GB)</a></h3>
-                                <p class="c-p-vendor mb-1">Vendor Name</p>
-                                <p class="c-p-summary mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo sunt 
-                                    voluptas architecto repellendus incidunt omnis. Minima et repellat blanditiis sequi voluptatibus
-                                     fugit, aliquam amet iste mollitia dolores nisi quos similique?</p>
-                                <div class="c-p-price">₹ 17,999 /-</div>
-                            </div>
-                            <div class="c-p-btn">
-                                <div class="c-p-qty mb-1">
-                                    <label for="">Qty</label>
-                                    <input type="number" min="1">
-                                </div>
-                                <button><i class="fa-solid fa-trash-alt"></i> Remove</button>
-                            </div>
-                        </div>
+
                     </div>
                     <style>
-                        .summ-head{font-size: 1.4rem;padding: 0.4rem 0;}
-                        .cart-price{display: flex;justify-content: space-between;margin-bottom: 0.8rem;padding: 0.4rem 0;
-                        font-size: 14px;}
-                        .checkout-btn{width: 100%;padding: 0.5rem;border: 0;border-radius: 0.5rem;margin-top: 0.5rem;}
+                        .summ-head {
+                            font-size: 1.4rem;
+                            padding: 0.4rem 0;
+                        }
+
+                        .cart-price {
+                            display: flex;
+                            justify-content: space-between;
+                            margin-bottom: 0.8rem;
+                            padding: 0.4rem 0;
+                            font-size: 14px;
+                        }
+
+                        .checkout-btn {
+                            width: 100%;
+                            padding: 0.5rem;
+                            border: 0;
+                            border-radius: 0.5rem;
+                            margin-top: 0.5rem;
+                        }
                     </style>
                     <div class="cart-summary">
                         <div class="summ-head">Cart Summary</div>
@@ -113,9 +165,72 @@
             </div>
         </section>
     </main>
-    
+
     <div id="footer"></div>
 
     <script type="module" src="/js/main.js"></script>
+    <script type="module">
+        import { removeFromCart, clearCart, getCart } from "./js/cart.js"
+
+        function loadCart() {
+            let cartProducts = document.getElementById('cart-products')
+            // cart-products
+            let cartItems = getCart()
+            if (cartItems.length) {
+                cartProducts.innerHTML = ""
+                cartItems.forEach(async (item) => {
+                    // fetch product ID
+                    // console.log(item)
+                    let data = await fetchProduct(item.pID)
+                    // display data in cart
+                    let thisProduct = `<div class="cart-product">
+                        <div class="c-p-media">
+                            <img src="${data.image}"
+                            alt="${data.title}">
+                        </div>
+                        <div class="c-p-info">
+                            <h3 class=""><a href="product-single.html?id=${data.id}">${data.title}</a></h3>
+                            <p class="c-p-vendor mb-1">${data.category}</p>
+                            <div class="c-p-price">₹ ${data.price} /-</div>
+                        </div>
+                        <div class="c-p-btn">
+                            <div class="c-p-qty mb-1">
+                                <label for="">Qty</label>
+                                <input type="number" min="1" value="${item.qty}">
+                            </div>
+                            <button onclick="removeItem(${data.id})"><i class="fa-solid fa-trash-alt"></i> Remove</button>
+                        </div>
+                    </div>`
+                    cartProducts.innerHTML += thisProduct
+                });
+            }
+        }
+
+        function removeItem(id){
+            removeFromCart(id)
+            loadCart()
+        }
+        window.removeItem = removeItem
+
+        const url = 'https://shopnest-7577a-default-rtdb.asia-southeast1.firebasedatabase.app/'
+
+        async function fetchProduct(id) {
+            try {
+                let response = await fetch(`${url}/products/${id}.json`)
+                let data = await response.json()
+                // let data = Object.entries(dataJson || {}).map(([id, item]) => ({ id, ...item }))
+                data.id = id
+                return data
+            } catch (error) {
+                console.log('Error fetching data:', error)
+            }
+        }
+
+        loadCart()
+
+    </script>
+
+
 </body>
+
 </html>

@@ -40,7 +40,8 @@
     <div id="footer"></div>
 
     <script type="module" src="./js/main.js"></script>
-    <script>
+    <script type="module">
+        import {addToCart} from "./js/cart.js"
 
         const urlParams = new URLSearchParams(window.location.search);
         const pID = urlParams.get('id');
@@ -71,13 +72,19 @@
             document.getElementById('p-price').innerText = `₹ ${data[0].price}/-`
             document.getElementById('p-description').innerText = data[0].description
             document.getElementById('p-category').innerText = data[0].category
-            document.getElementById('p-button').onclick = `addtoCart(${data[0].id})`
-            // console.log(data)
+            document.getElementById('p-button').addEventListener('click',()=>{
+                addItemInCart(+data[0].id)
+            })
+        
         }
 
-        function addtoCart(id){
-
+        function addItemInCart(id){
+            addToCart(id)
+            alert("Added to Cart")
         }
+
+        window.addItemInCart = addItemInCart
+
         
         fetchData(pID)
 
