@@ -23,10 +23,10 @@ my-app/
 ├─ other pages like (cart.html, login, signup etc)
 
 ## Video Walkthrough of the project
-Attach a very short video walkthough of all of the features [ 1 - 3 minutes ]
+https://youtu.be/8IHvgPJlGsE
 
 ## Video Walkthrough of the codebase
-Attach a very short video walkthough of codebase [ 1 - 5 minutes ]
+https://youtu.be/2-7af5L_Ulw
 
 ## Features
 Key features:-
